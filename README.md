@@ -1,6 +1,8 @@
 # avaliacao_vivo
 Teste de novos desenvolvedores
 
+Para questão 1 executar python questao1.py
+
 Para a questão 2 instalar o flask, caso não tenha no ambiente
 pip install flask 
 
