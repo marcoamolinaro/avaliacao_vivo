@@ -1,24 +1,21 @@
-package com.vivo.corrida.entity;
+package com.vivo.corrida.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+import java.time.LocalDateTime;
 import java.util.Date;
 
-@Entity
-@Table(name = "corrida")
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Corrida {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class CorridaDTO {
 
     @JsonFormat(pattern = "HH:mm:ss.SSS")
     private Date hora;
