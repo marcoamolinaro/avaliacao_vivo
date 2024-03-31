@@ -24,6 +24,7 @@ public class LoadServiceImpl implements LoadService {
         for (CorridaDTO dto : corridaDTOList) {
             Corrida corrida = Corrida.builder()
                     .hora(dto.getHora())
+                    .codigoSuperHeroi(dto.getCodigoSuperHeroi())
                     .nomeHeroi(dto.getNomeHeroi())
                     .numeroVolta(dto.getNumeroVolta())
                     .tempoVolta(dto.getTempoVolta())

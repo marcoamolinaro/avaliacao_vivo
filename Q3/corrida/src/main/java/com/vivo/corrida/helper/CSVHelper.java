@@ -45,39 +45,19 @@ public class CSVHelper {
             for (String[] row : allData) {
                 List<String> l = Arrays.stream(row).toList();
                 CorridaDTO corrida = new CorridaDTO();
-                corrida.setHora(formatter.parse(l.get(0)));
-                corrida.setNomeHeroi(l.get(1));
+                corrida.setHora(l.get(0));
+                corrida.setCodigoSuperHeroi(l.get(1).substring(0,3));
+                corrida.setNomeHeroi(l.get(1).substring(4));
                 corrida.setNumeroVolta(Integer.parseInt(l.get(2)));
-                corrida.setTempoVolta(formatter.parse("00:0" + l.get(3)));
+                Integer minutos = Integer.parseInt(l.get(3).substring(0,1));
+                Integer segundos = Integer.parseInt(l.get(3).substring(2,4));
+                Integer milisegundos = Integer.parseInt(l.get(3).substring(5,8));
+                System.out.println("Minutos [" + minutos
+                        + "] Segundos [" + segundos + "] Miliseg [" + milisegundos + "]");
+                corrida.setTempoVolta(Utils.converterTempoParaMilisegundos(minutos, segundos, milisegundos));
                 corrida.setVelocidadeVolta(Double.parseDouble((l.get(4)).replace(',','.')));
                 corridas.add(corrida);
             }
-
-            /**
-            long tempoVolta = 0;
-            int contador = 0;
-            for (CorridaDTO corridaDTO : corridas) {
-                contador++;
-                System.out.println("Linha " + contador);
-                System.out.println("Hora: " + formatter.format(corridaDTO.getHora()));
-                System.out.println("Super-Heroi " + corridaDTO.getNomeHeroi());
-                System.out.println("Nº Volta" + corridaDTO.getNumeroVolta());
-                System.out.println("Tempo Volta " + formatter.format(corridaDTO.getTempoVolta()));
-
-                if ("038–Superman".equals(corridaDTO.getNomeHeroi())) {
-                    tempoVolta += corridaDTO.getTempoVolta().getTime();
-                }
-
-                System.out.println("Velocidade " + corridaDTO.getVelocidadeVolta());
-                System.out.println("-----------------------------------------------");
-            }
-
-            System.out.println("---------------------------");
-
-            Date tempoTotalDate = new Date();
-            tempoTotalDate.setTime(tempoVolta);
-            System.out.println("Tempo totoal " + formatter.format(tempoTotalDate));
-            **/
         }
         catch (Exception e) {
             e.printStackTrace();

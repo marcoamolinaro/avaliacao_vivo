@@ -18,9 +18,9 @@ public class CorridaController {
     @GetMapping(value = "/teste")
     public String teste() {
 
-        List<CorridaDTO> corridas = new ArrayList<>();
+        //List<CorridaDTO> corridas = new ArrayList<>();
 
-        corridas = CSVHelper.csvToOrders();
+        //corridas = CSVHelper.csvToOrders();
 
         return "Hello World!";
     }

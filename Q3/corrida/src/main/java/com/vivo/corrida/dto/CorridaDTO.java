@@ -17,11 +17,10 @@ import java.util.Date;
 @Builder
 public class CorridaDTO {
 
-    @JsonFormat(pattern = "HH:mm:ss.SSS")
-    private Date hora;
+    private String hora;
+    private String codigoSuperHeroi;
     private String nomeHeroi;
     private Integer numeroVolta;
-    @JsonFormat(pattern = "HH:mm:ss.SSS")
-    private Date tempoVolta;
+    private long tempoVolta;
     private Double velocidadeVolta;
 }

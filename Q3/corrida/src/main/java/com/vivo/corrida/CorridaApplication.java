@@ -14,8 +14,4 @@ public class CorridaApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(CorridaApplication.class, args);
 	}
-	@PostConstruct
-	public void postContruct() {
-		loadService.loadCSVToTable();
-	}
 }

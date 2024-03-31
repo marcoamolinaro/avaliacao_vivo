@@ -20,11 +20,10 @@ public class Corrida {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonFormat(pattern = "HH:mm:ss.SSS")
-    private Date hora;
+    private String hora;
+    private String codigoSuperHeroi;
     private String nomeHeroi;
     private Integer numeroVolta;
-    @JsonFormat(pattern = "HH:mm:ss.SSS")
-    private Date tempoVolta;
+    private Long tempoVolta;
     private Double velocidadeVolta;
 }
