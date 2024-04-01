@@ -5,9 +5,9 @@ import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.vivo.corrida.dto.CorridaDTO;
+import com.vivo.corrida.exception.CustomException;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -17,9 +17,8 @@ import java.util.List;
 
 @Component
 public class CSVHelper {
-    public static String TYPE = "text/csv";
 
-    public static List<CorridaDTO> csvToOrders() {
+    public static List<CorridaDTO> csvToOrders() throws Exception {
         List<CorridaDTO> corridas = new ArrayList<>();
 
         try {
@@ -53,7 +52,7 @@ public class CSVHelper {
             }
         }
         catch (Exception e) {
-            e.printStackTrace();
+            throw new CustomException("Erro ao importar arquivo de log de corrida", "RUNTIME_EXCEPTION", 500);
         }
 
         return corridas;
