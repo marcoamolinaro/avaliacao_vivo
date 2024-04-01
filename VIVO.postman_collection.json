@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "188736ee-8d08-4869-a9f0-7a05f6182a50",
+		"name": "VIVO",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "7418351"
+	},
+	"item": [
+		{
+			"name": "questao2",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "questao3",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
