@@ -47,7 +47,7 @@ public class CSVHelper {
                 Integer milisegundos = Integer.parseInt(l.get(3).substring(5,8));
                 System.out.println("Minutos [" + minutos
                         + "] Segundos [" + segundos + "] Miliseg [" + milisegundos + "]");
-                corrida.setTempoVolta(Utils.converterTempoParaMilisegundos(minutos, segundos, milisegundos));
+                corrida.setTempoVolta(Utils.converterTempoParaMilisegundos(0, minutos, segundos, milisegundos));
                 corrida.setVelocidadeVolta(Double.parseDouble((l.get(4)).replace(',','.')));
                 corridas.add(corrida);
             }

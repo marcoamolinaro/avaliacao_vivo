@@ -14,5 +14,6 @@ public interface CorridaRepository extends JpaRepository<Corrida, Long> {
     @Transactional(readOnly=true)
     @Query(value = "SELECT new com.vivo.corrida.model.ResultadoCorridaResponse(codigoSuperHeroi, nomeHeroi, count(numeroVolta) as volta, sum(tempoVolta) as tempo, avg(velocidadeVolta) as media) FROM Corrida GROUP BY codigoSuperHeroi, nomeHeroi ORDER BY volta DESC, tempo ASC ")
     List<ResultadoCorridaResponse> lerResultadoCorrida();
-    List<Corrida> findByCodigoSuperHeroiOrderByVelocidadeVoltaAsc(String codigoSuperHeroi);
+    @Transactional(readOnly=true)
+    List<Corrida> findByCodigoSuperHeroiOrderByTempoVoltaAsc(String codigoSuperHeroi);
 }

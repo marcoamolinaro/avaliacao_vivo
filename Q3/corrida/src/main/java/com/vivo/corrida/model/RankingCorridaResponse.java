@@ -14,7 +14,7 @@ public class RankingCorridaResponse {
     private String codigoSuperHeroi;
     private String nomeSuperHeroi;
     private Long quantidadeVoltasCompletas;
-    private Long tempoTotalSuperHeroi;
+    private String tempoTotalSuperHeroi;
     private Integer melhorVoltaSuperHeroi;
     private Double velocidadeMediaSuperHeroi;
 }

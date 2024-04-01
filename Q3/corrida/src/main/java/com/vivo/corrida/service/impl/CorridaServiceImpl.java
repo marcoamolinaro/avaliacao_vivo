@@ -25,8 +25,13 @@ public class CorridaServiceImpl implements CorridaService {
     @Override
     public Corrida lerMelhorVolta(String codigoSuperHeroi) {
         List<Corrida> corridaDTOList =
-                corridaRepository.findByCodigoSuperHeroiOrderByVelocidadeVoltaAsc(codigoSuperHeroi);
+                corridaRepository.findByCodigoSuperHeroiOrderByTempoVoltaAsc(codigoSuperHeroi);
         Corrida corrida = corridaDTOList.get(0);
         return corrida;
+    }
+
+    @Override
+    public List<Corrida> lerCorridas() {
+        return corridaRepository.findAll();
     }
 }

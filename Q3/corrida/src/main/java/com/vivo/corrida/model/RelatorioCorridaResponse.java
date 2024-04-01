@@ -12,7 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 public class RelatorioCorridaResponse {
-    List<RankingCorridaResponse> rankingCorridaResponseList;
-    private String tempoTotalProva;
+    List<RankingCorridaResponse> rankingCorridaResponses;
     private Integer melhorVoltaCorrida;
 }
