@@ -66,13 +66,14 @@ public class CorridaController {
         List<RankingCorridaResponse> rankingCorridaResponseList = new ArrayList<>();
         for (ResultadoCorridaResponse rcp : listPrimeiros) {
             pos++;
+            Corrida corrida = corridaService.lerMelhorVolta(rcp.getCodigoSuperHeroi());
             RankingCorridaResponse rankingCorridaResponse = RankingCorridaResponse.builder()
                     .posicaoChegada(pos)
                     .codigoSuperHeroi(rcp.getCodigoSuperHeroi())
                     .nomeSuperHeroi(rcp.getNomeHeroi())
                     .quantidadeVoltasCompletas(rcp.getNumeroVolta())
                     .tempoTotalSuperHeroi(rcp.getTempoVolta())
-                    .melhorVoltaSuperHeroi(0L)
+                    .melhorVoltaSuperHeroi(corrida.getNumeroVolta())
                     .velocidadeMediaSuperHeroi(rcp.getVelocidadeVolta())
                     .build();
             rankingCorridaResponseList.add(rankingCorridaResponse);

@@ -21,4 +21,12 @@ public class CorridaServiceImpl implements CorridaService {
     public List<ResultadoCorridaResponse> lerResultadoCorrida() {
         return corridaRepository.lerResultadoCorrida();
     }
+
+    @Override
+    public Corrida lerMelhorVolta(String codigoSuperHeroi) {
+        List<Corrida> corridaDTOList =
+                corridaRepository.findByCodigoSuperHeroiOrderByVelocidadeVoltaAsc(codigoSuperHeroi);
+        Corrida corrida = corridaDTOList.get(0);
+        return corrida;
+    }
 }

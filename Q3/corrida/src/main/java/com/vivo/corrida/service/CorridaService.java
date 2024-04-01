@@ -9,4 +9,5 @@ import java.util.List;
 
 public interface CorridaService {
     List<ResultadoCorridaResponse> lerResultadoCorrida();
+    Corrida lerMelhorVolta(String codigoSuperHeroi);
 }
