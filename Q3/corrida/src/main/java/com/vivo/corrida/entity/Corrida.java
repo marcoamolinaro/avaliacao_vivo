@@ -19,7 +19,6 @@ public class Corrida {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String hora;
     private String codigoSuperHeroi;
     private String nomeHeroi;

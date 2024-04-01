@@ -18,14 +18,7 @@ import java.util.List;
 @Component
 public class CSVHelper {
     public static String TYPE = "text/csv";
-    //static String[] HEADERs = {"Hora","Super-Heroi","Nº Volta","Tempo Volta","Velocidade média da volta"};
 
-    public static boolean hasCSVFormat(MultipartFile file) {
-        if (!TYPE.equals(file.getContentType())) {
-            return false;
-        }
-        return true;
-    }
     public static List<CorridaDTO> csvToOrders() {
         List<CorridaDTO> corridas = new ArrayList<>();
 

@@ -17,6 +17,7 @@ import java.util.Date;
 @Builder
 public class CorridaDTO {
 
+    private Long id;
     private String hora;
     private String codigoSuperHeroi;
     private String nomeHeroi;
