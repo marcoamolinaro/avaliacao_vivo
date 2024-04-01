@@ -72,6 +72,8 @@ public class CorridaController {
                     .nomeSuperHeroi(rcp.getNomeHeroi())
                     .quantidadeVoltasCompletas(rcp.getNumeroVolta())
                     .tempoTotalSuperHeroi(rcp.getTempoVolta())
+                    .melhorVoltaSuperHeroi(0L)
+                    .velocidadeMediaSuperHeroi(rcp.getVelocidadeVolta())
                     .build();
             rankingCorridaResponseList.add(rankingCorridaResponse);
         }

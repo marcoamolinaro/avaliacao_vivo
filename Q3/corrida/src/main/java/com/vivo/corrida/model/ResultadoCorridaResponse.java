@@ -15,4 +15,5 @@ public class ResultadoCorridaResponse {
     private String nomeHeroi;
     private Long numeroVolta;
     private Long tempoVolta;
+    private Double velocidadeVolta;
 }
