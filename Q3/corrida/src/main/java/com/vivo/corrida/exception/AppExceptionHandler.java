@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
@@ -15,10 +16,18 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.Date;
 
 @ControllerAdvice
+@RestController
 public class AppExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler({ObjectNotFoundException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ResponseEntity<Object> handleObjectNotFoundException(ObjectNotFoundException ex, WebRequest request) {
+
+        return handleExceptionInternal(ex, new ErrorMessageResponse(new Date(), HttpStatus.NOT_FOUND.value(), "Não foram encontradas informações para essa pesquisa."), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
+    }
+
+    @ExceptionHandler({Exception.class})
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ResponseEntity<Object> handleGenericException(Exception ex, WebRequest request) {
 
         return handleExceptionInternal(ex, new ErrorMessageResponse(new Date(), HttpStatus.NOT_FOUND.value(), "Não foram encontradas informações para essa pesquisa."), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
@@ -36,6 +45,4 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 
         return handleExceptionInternal(ex, new ErrorMessageResponse(new Date(), HttpStatus.NOT_ACCEPTABLE.value(), ex.getMessage()), new HttpHeaders(), HttpStatus.NOT_ACCEPTABLE, request);
     }
-
-
 }
